@@ -1,0 +1,34 @@
+openapi: 3.0.3
+info:
+  title: ms-permisos API
+  version: 1.0.0
+paths:
+  /context:
+    get:
+      parameters:
+        - in: header
+          name: Uuid
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Contexto usuario
+  /internal/authorize:
+    get:
+      parameters:
+        - in: query
+          name: key
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Resultado autorización
+  /internal/context/invalidate:
+    post:
+      responses:
+        '200':
+          description: Cache invalidada
+  /internal/grants:
+    get:
+      responses:
+        '200':
+          description: Grants por recurso
